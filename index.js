@@ -57,7 +57,18 @@ let renderSavedActivities = (obj) => {
         doneButton.className = 'done-button';
         doneButton.className = 'btn btn-success pushingtotheside';
         newLi.prepend(doneButton);
+        
         doneButton.addEventListener('click', completeActivity);
+        doneButton.addEventListener('click', (event) => {
+            // event.preventDefault()
+            completeActivity(event)
+            party.confetti(event, {
+                shapes: ["star"],
+                gravity: 75
+            })
+            // party.sparkles(event)
+        });
+        
 
         //append as children to listName
         listName.appendChild(newLi)
@@ -152,9 +163,11 @@ let saveActivity = (event) => {
     .then(data => console.log(data));
     realSubmitForm.reset();
 
+
     //also should move the whole list to the new section and remove the elements from the middle
     renderSavedActivities(newListSavedObj);
     formList.innerHTML = '';
+
 
 }
     
@@ -242,7 +255,7 @@ let renderActivity = (data) => {
     doneButton.className = 'btn btn-success pushingtotheside';
     newLi.prepend(doneButton);
     doneButton.addEventListener('click', (event) => {
-        event.preventDefault()
+        // event.preventDefault()
         completeActivity(event)
         party.confetti(event, {
             shapes: ["star"],
@@ -309,7 +322,6 @@ let handleChangeFactory = (event) => {
         fetchForDropdown(type_Url + `${activityType}`)
     }
 }
-
 realSubmitForm.addEventListener('submit', saveActivity);
 randomButton.addEventListener('click', activityFactory);
 activityDropDown.addEventListener('change', handleChangeFactory);
