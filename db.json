@@ -27,7 +27,6 @@
       ],
       "id": "3"
     }
-
   ],
   "completed-activities": [
     {
@@ -41,6 +40,18 @@
     {
       "activity": "Prepare a dish from a foreign culture",
       "id": "3"
+    },
+    {
+      "activity": "Try a food you don't like",
+      "id": "HK21_xE"
+    },
+    {
+      "activity": "Think of a new business idea",
+      "id": "nIvqZJ-"
+    },
+    {
+      "activity": "Patronize a local independent restaurant",
+      "id": "3pggaDy"
     }
   ]
 }
