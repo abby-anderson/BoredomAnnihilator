@@ -6,44 +6,34 @@
     <script defer src="https://cdn.jsdelivr.net/npm/party-js@latest/bundle/party.min.js"></script>
     <script defer src="index.js"></script>
 </head>
-
 <body>
     <div id="top-spacing">
     <div id="saved-list-container" class="left">
-        <img src="images/smalllove2.png">
+        <img src="images/smalllove2.png" class="header-images">
         <ul id="saved-lists">
         </ul>
     </div>
-
     <div id="completed-list-container" class="right">
-        <img src="images/largefinished.png">
+        <img src="images/largefinished.png" class="header-images">
         <ul id="completed-list">
         </ul>
     </div>
-    
     <div class="center bgimg">
-
         <div class="child"></div>
 <!-- ^ makes transparent space for logo -->
-
         <div class="thirds1">
-
             <br>
             <img id="save" src="images/tinysave.png">
             <form id="save-form">
                 <label></label>
                 <input type="text" id="list-name-input" />
                 <input type="submit" id="list-name" value="Submit" />
-                <ul id="selected-activities"> 
-                </ul>
             </form>
-
         </div>
         <button class="btn btn-primary" id="random-button">Annihilate my Boredom!</button>
-        
         <div class="thirds3">
             <br>
-            <img src=images/largetype.png>
+            <img src=images/largetype.png class="header-images">
             <div id="dropdown-container">
                 <label for="select-activity"></label>
                 <select id="activity-dropdown" name="select-activity">
@@ -59,31 +49,21 @@
                     <option value ="busywork">Busywork</option>
                 </select>
                 <!-- <ul id="activities-by-type-container" class=""></ul> -->
-                
             </div>
-            
-            
         </div>
-        
-        
-        
     </div>
-    
 </div>
-
-
-
 </div>
-
-
-
-<ul id="list-container" class="stuffholder">
-
-</ul>
-
-
+<div class="leftmid">
+    <ul id="selected-activities" class='stuffholder'> 
+    <!--saved activities go here-->
+    </ul>
+</div>
+<div class="rightmid">
+    <ul id="list-container" class="stuffholder">
+    <!--activiteis spawn here-->
+    </ul>
+</div>
 <!-- <img id="trash" src="images/trash.png"><img id="heart" src="images/heart.png"><img id="check" src="images/check.png"> -->
-
 </body>
-
 </html>
