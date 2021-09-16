@@ -19,6 +19,8 @@
 }
  
 
+
+
  /*div {
   border: 3px solid greenyellow;
 } */
@@ -180,4 +182,8 @@ img {
     text-align: right;
     float: right;
     width: 213px;
+  }
+
+  .heart-image {
+    width: 30px;
   }

@@ -213,11 +213,21 @@ let renderActivity = (data) => {
     newLi.appendChild(newSpan);
     listContainer.appendChild(newLi);
     
-    const saveButton = document.createElement('button');
-    saveButton.innerHTML = '<img src="images/heart.png">';
-    saveButton.className = 'btn btn-primary pushingtotheside'; 
+    //****working on adding image instead of button */
+    //const saveButton = document.createElement('button');
+    const saveButton = document.createElement('img');
+    saveButton.src = 'images/heart.png'
+    saveButton.className = 'heart-image pushingtotheside';
+    //saveButton.innerHTML = '<img src="images/heart.png">';
+    //saveButton.className = 'btn btn-primary pushingtotheside'; 
     newLi.prepend(saveButton);
     saveButton.addEventListener('click', selectActivity);
+    saveButton.addEventListener('mouseover', () => {
+        saveButton.src = 'images/icon.jpg'
+    })
+    saveButton.addEventListener('mouseout', () => {
+        saveButton.src = 'images/heart.png'
+    })
 
     const deleteButton = document.createElement('button');
     deleteButton.innerHTML = '<img src="images/trash.png">';
