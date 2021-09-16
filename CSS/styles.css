@@ -185,9 +185,14 @@ img {
 
 
   .heart-image {
-    width: 30px;
+    width: 20px;
   }
-
+.trash-image {
+  width: 20px;
+}
+.check-image {
+  width: 20px;
+}
 
 #top-spacing{
   padding-top: 15px;
