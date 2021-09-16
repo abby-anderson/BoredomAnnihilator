@@ -179,6 +179,7 @@ let saveActivity = (event) => {
     realSubmitForm.reset();
 
     
+
 }
     
     let deleteActivity = (event) => {
@@ -322,7 +323,6 @@ let handleChangeFactory = (event) => {
         fetchForDropdown(type_Url + `${activityType}`)
     }
 }
-
 realSubmitForm.addEventListener('submit', saveActivity);
 randomButton.addEventListener('click', activityFactory);
 activityDropDown.addEventListener('change', handleChangeFactory);
