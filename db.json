@@ -26,6 +26,14 @@
         "Read War and Peace"
       ],
       "id": "3"
+    },
+    {
+      "name": "new list",
+      "activities": [
+        "Conquer one of your fears",
+        "Play a volleyball match with some friends"
+      ],
+      "id": "StQVd1P"
     }
   ],
   "completed-activities": [
@@ -42,104 +50,16 @@
       "id": "3"
     },
     {
-      "activity": "Try a food you don't like",
-      "id": "HK21_xE"
+      "activity": "Go on a long drive with no music",
+      "id": "7z99DYl"
     },
     {
-      "activity": "Think of a new business idea",
-      "id": "nIvqZJ-"
+      "activity": "Learn how to make a website",
+      "id": "Rgb6OPG"
     },
     {
-      "activity": "Patronize a local independent restaurant",
-      "id": "3pggaDy"
-    },
-    {
-      "activity": "Have a photo session with some friends",
-      "id": "0l6VFVK"
-    },
-    {
-      "activity": "Have a photo session with some friends",
-      "id": "rcFyAkz"
-    },
-    {
-      "activity": "",
-      "id": "9J9IWzD"
-    },
-    {
-      "activity": "Go to a concert with some friends",
-      "id": "y2HLlO_"
-    },
-    {
-      "activity": "",
-      "id": "1W6ZkOA"
-    },
-    {
-      "activity": "Visit your past teachers",
-      "id": "HhQm3oD"
-    },
-    {
-      "activity": "Visit your past teachers",
-      "id": "rojF0a_"
-    },
-    {
-      "activity": "",
-      "id": "Wz9ZwDB"
-    },
-    {
-      "activity": "",
-      "id": "n2Mj-vh"
-    },
-    {
-      "activity": "",
-      "id": "F8q_w4u"
-    },
-    {
-      "activity": "",
-      "id": "jBYa_pZ"
-    },
-    {
-      "activity": "",
-      "id": "35Q7AGT"
-    },
-    {
-      "activity": "Start a garden",
-      "id": "3QUOHGz"
-    },
-    {
-      "activity": "Donate to your local food bank",
-      "id": "-jWhpta"
-    },
-    {
-      "activity": "Plant a tree",
-      "id": "vzQWxRe"
-    },
-    {
-      "activity": "Go to the library and find an interesting book",
-      "id": "tjAgABw"
-    },
-    {
-      "activity": "",
-      "id": "Um9DXS-"
-    },
-    {
-      "activity": "",
-      "id": "UNvHBa1"
-    },
-    {
-      "activity": "",
-      "id": "PhQh8jC"
-    },
-    {
-      "activity": "Play basketball with a group of friends",
-      "id": "LNjscQD"
-    },
-    {
-      "activity": "Watch a movie you'd never usually watch",
-      "id": "RdBYtc6"
-    },
-    {
-      "activity": "",
-      "id": "xityEAZ"
+      "activity": "Go see a Broadway production",
+      "id": "icaa8SU"
     }
   ]
 }

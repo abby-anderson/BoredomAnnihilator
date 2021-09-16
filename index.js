@@ -175,7 +175,7 @@ let saveActivity = (event) => {
     
     let deleteActivity = (event) => {
     //this funtion deletes activities off of a list
-    event.target.parentNode.parentNode.remove();
+    event.target.parentNode.remove();
     
     //would like to also add a section of this regarding DELETE fetch, so that we can delete items that were saved to a local db list --maybe would be in a separate function just for separation of concerns
 }
