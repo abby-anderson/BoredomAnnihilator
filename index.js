@@ -57,7 +57,18 @@ let renderSavedActivities = (obj) => {
         doneButton.className = 'done-button';
         doneButton.className = 'btn btn-success pushingtotheside';
         newLi.prepend(doneButton);
+        
         doneButton.addEventListener('click', completeActivity);
+        doneButton.addEventListener('click', (event) => {
+            // event.preventDefault()
+            completeActivity(event)
+            party.confetti(event, {
+                shapes: ["star"],
+                gravity: 75
+            })
+            // party.sparkles(event)
+        });
+        
 
         //append as children to listName
         listName.appendChild(newLi)
@@ -244,7 +255,7 @@ let renderActivity = (data) => {
     doneButton.className = 'btn btn-success pushingtotheside';
     newLi.prepend(doneButton);
     doneButton.addEventListener('click', (event) => {
-        event.preventDefault()
+        // event.preventDefault()
         completeActivity(event)
         party.confetti(event, {
             shapes: ["star"],
