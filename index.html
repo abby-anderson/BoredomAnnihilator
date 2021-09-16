@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <div id="top-spacing">
     <div id="saved-list-container" class="left">
         <img src="images/smalllove2.png">
         <ul id="saved-lists">
@@ -22,22 +23,27 @@
     </div>
     
     <div class="center bgimg">
+
         <div class="child"></div>
+<!-- makes transparent space for logo -->
+
         <div class="thirds1">
-            <br><br>
-            <form id="save-form" class="">
-            <label></label>
-            <input type="text" id="list-name-input" />
-            <input type="submit" id="list-name" value="Submit" />
-            <ul id="selected-activities" class="">
-                
-            </ul>
+            <br>
+            <img id="save" src="images/tinysave.png">
+            <form id="save-form">
+                <label></label>
+                <input type="text" id="list-name-input" />
+                <input type="submit" id="list-name" value="Submit" />
+                <ul id="selected-activities"> 
+                </ul>
             </form>
         </div>
         <button class="btn btn-primary" id="random-button">Annihilate my Boredom!</button>
+        
         <div class="thirds3">
-            <br><br>
-            <div id="dropdown-container" class="">
+            <br>
+            <img src=images/largetype.png>
+            <div id="dropdown-container">
                 <label for="select-activity"></label>
                 <select id="activity-dropdown" name="select-activity">
                     <option></option>
@@ -52,10 +58,10 @@
                     <option value ="busywork">Busywork</option>
                 </select>
                 <!-- <ul id="activities-by-type-container" class=""></ul> -->
-
+                
             </div>
-    
-
+            
+            
         </div>
         
         
@@ -65,14 +71,16 @@
 </div>
 
 
-    
+
 </div>
 
 <div id="list-container" class="stuffholder">
-    <ul id="activities-by-type-container" class=""></ul>
-
+    <ul id="activities-by-type-container"></ul>
+    
+</div>
 </div>
 
+<!-- <img id="trash" src="images/trash.png"><img id="heart" src="images/heart.png"><img id="check" src="images/check.png"> -->
 
 </body>
 

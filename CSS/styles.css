@@ -13,7 +13,7 @@
 }
  
 
- /*div {
+ /* div {
   border: 3px solid greenyellow;
 } */
 
@@ -91,7 +91,7 @@ body {
 .right {
   float: right;
   width: 25%;
-  padding-left: 15px;
+  /* padding-left: 15px; */
 }
 
 .clearfix::after {
@@ -175,3 +175,31 @@ img {
     float: right;
     width: 213px;
   }
+
+
+#top-spacing{
+  padding-top: 15px;
+}
+
+.savedListTitle{
+  font-weight: bold;
+  color:rgb(255, 208, 0);
+  font-size: larger;
+}
+
+#trash{
+  width: 20px;
+}
+
+#heart{
+  width: 30px;
+}
+
+#check{
+  width: 30px; 
+   /* or 28 */
+}
+
+#save{
+  width: 46px;
+}

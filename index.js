@@ -163,6 +163,7 @@ let saveActivity = (event) => {
     .then(data => console.log(data));
     submitForm.reset();
     
+
     //once the spot is created, will want to add the title to a section where you can see all your saved list titles. that way you can click on them and see the activity items
 }
     
