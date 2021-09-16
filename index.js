@@ -37,7 +37,7 @@ let renderSavedActivities = (obj) => {
     listName.textContent = obj.name
     listName.className = 'savedListTitle';
 
-    console.log(obj.activities) //array
+    //console.log(obj.activities) //array
     obj.activities.forEach(function(element){
         //create new list items 
         const newLi = document.createElement('li')
@@ -53,7 +53,7 @@ let renderSavedActivities = (obj) => {
         deleteButton.addEventListener('click', deleteActivity);
 
         const doneButton = document.createElement('button');
-        doneButton.textContent = 'done';
+        doneButton.innerHTML = '<img src="images/check.png">';
         doneButton.className = 'done-button';
         doneButton.className = 'btn btn-success pushingtotheside';
         newLi.prepend(doneButton);
@@ -94,7 +94,7 @@ let renderCompletedActivities = (data) => {
     completedList.appendChild(newLi);
     
     const saveButton = document.createElement('button');
-    saveButton.textContent = "save";
+    saveButton.innerHTML = '<img src="images/heart.png">';
     saveButton.className = 'btn btn-primary pushingtotheside'; 
     newLi.prepend(saveButton);
     saveButton.addEventListener('click', selectActivity);
@@ -116,7 +116,7 @@ let selectActivity = (event) => {
     event.preventDefault();
     const selectedActivity = event.target.parentNode;
     selectedActivity.className = 'selected-list-element';
-    console.log(event.target.parentNode);
+    //console.log(event.target.parentNode);
     formList.append(selectedActivity);
 
  
@@ -133,36 +133,21 @@ let saveActivity = (event) => {
     const newListName = document.querySelector("input#list-name-input").value;
     //console.log(newListName); //for name of newListSavedObj
 
-    //now, how to grab the list elements that are now in the form. maybe something about children with class = selected-list-element
-    // let listNodes = document.querySelectorAll('.selected-list-element');
-    // const listArray = [...listNodes]
-    // const newListArray = [];
-
-    // listArray.forEach(element => {
-    //     console.log(element.lastChild.textContent);
-    //     const newActivity = element.lastChild.textContent;
-    //     //for activities saved to newListSavedObj
-    //     console.log(newActivity);
-    //     newListArray.push(newActivity);
-    //     console.log(newListArray);
-    //     return newListArray;
-    // });
-
-
-
     let listNodes = document.querySelectorAll('.selected-list-element');
+    console.log(listNodes);
+    console.log(typeof listNodes);
+
+
     const listArray = [...listNodes];
     let newListArray = listArray.map(element => element.lastChild.textContent);
-
-
 
     const newListSavedObj = {
         name: newListName, 
         activities: newListArray,//selected list element
     }
     // creating a new object to save to the local db
-    console.log('newListArray from map', newListArray);
-    console.log(newListSavedObj);
+    //console.log('newListArray from map', newListArray);
+    //console.log(newListSavedObj);
     
     //then do fetch request to post this to the local db
     const configObj = {
@@ -178,7 +163,11 @@ let saveActivity = (event) => {
     .then(data => console.log(data));
     realSubmitForm.reset();
 
-    
+
+    //also should move the whole list to the new section and remove the elements from the middle
+    renderSavedActivities(newListSavedObj);
+    formList.innerHTML = '';
+
 
 }
     
@@ -237,11 +226,21 @@ let renderActivity = (data) => {
     newLi.appendChild(newSpan);
     listContainer.appendChild(newLi);
     
-    const saveButton = document.createElement('button');
-    saveButton.textContent = "save";
-    saveButton.className = 'btn btn-primary pushingtotheside'; 
+    //****working on adding image instead of button */
+    //const saveButton = document.createElement('button');
+    const saveButton = document.createElement('img');
+    saveButton.src = 'images/heart.png'
+    saveButton.className = 'heart-image pushingtotheside';
+    //saveButton.innerHTML = '<img src="images/heart.png">';
+    //saveButton.className = 'btn btn-primary pushingtotheside'; 
     newLi.prepend(saveButton);
     saveButton.addEventListener('click', selectActivity);
+    saveButton.addEventListener('mouseover', () => {
+        saveButton.src = 'images/icon.jpg'
+    })
+    saveButton.addEventListener('mouseout', () => {
+        saveButton.src = 'images/heart.png'
+    })
 
     const deleteButton = document.createElement('button');
     deleteButton.innerHTML = '<img src="images/trash.png">';
@@ -251,7 +250,7 @@ let renderActivity = (data) => {
     deleteButton.addEventListener('click', deleteActivity);
     
     const doneButton = document.createElement('button');
-    doneButton.textContent = 'done';
+    doneButton.innerHTML = '<img src="images/check.png">';
     doneButton.className = 'done-button';
     doneButton.className = 'btn btn-success pushingtotheside';
     newLi.prepend(doneButton);
