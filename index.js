@@ -84,7 +84,9 @@ let factoryCompletedActivities = (obj) => {
 }
 
 let renderCompletedActivities = (data) => {
+
     const completedActivity = data;
+    
     
     const newLi = document.createElement('li');
     const newSpan = document.createElement('span');
