@@ -104,7 +104,6 @@ let renderCompletedActivities = (data) => {
 let selectActivity = (event) => {
     //this function is to actually handle the selection of activities so that they can be saved on submit
     event.preventDefault();
-    debugger;
     const selectedActivity = event.target.parentNode;
     selectedActivity.className = 'selected-list-element';
     console.log(event.target.parentNode);
