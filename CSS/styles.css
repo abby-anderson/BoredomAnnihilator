@@ -1,3 +1,9 @@
+.savedListTitle{
+  font-weight: bold;
+  color:rgb(255, 208, 0);
+  font-size: larger;
+}
+
 .center{
   top: 0px;
   margin: auto;
