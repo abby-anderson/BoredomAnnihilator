@@ -26,6 +26,22 @@
         "Read War and Peace"
       ],
       "id": "3"
+    },
+    {
+      "name": "new list",
+      "activities": [
+        "Volunteer at your local food bank",
+        "Create or update your resume"
+      ],
+      "id": "GJPYMXD"
+    },
+    {
+      "name": "new list",
+      "activities": [
+        "Plan a trip to another country",
+        "Find a charity and donate to it"
+      ],
+      "id": "elQnaD-"
     }
   ],
   "completed-activities": [
