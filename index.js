@@ -6,6 +6,7 @@ const completed_activities_url = "http://localhost:3000/completed-activities";
 const container = document.querySelector('#activity-container');
 const listContainer = document.querySelector('#list-container');
 const submitForm = document.querySelector('#list-name')
+const realSubmitForm = document.querySelector('#save-form');
 const randomButton = document.querySelector('#random-button');
 const formSave = document.querySelector('form-save');
 const formList = document.querySelector('#selected-activities');
@@ -43,11 +44,11 @@ let renderSavedActivities = (obj) => {
         newLi.textContent = element;
         //console.log(newLi);
 
-        //add buttons
         const deleteButton = document.createElement('button');
-        deleteButton.textContent = 'delete';
         deleteButton.className = 'delete-button pushingtotheside';
         deleteButton.className = 'btn btn-danger';
+        deleteButton.innerHTML = '<img src="images/trash.png">';
+
         newLi.prepend(deleteButton);
         deleteButton.addEventListener('click', deleteActivity);
 
@@ -56,7 +57,18 @@ let renderSavedActivities = (obj) => {
         doneButton.className = 'done-button';
         doneButton.className = 'btn btn-success pushingtotheside';
         newLi.prepend(doneButton);
+        
         doneButton.addEventListener('click', completeActivity);
+        doneButton.addEventListener('click', (event) => {
+            // event.preventDefault()
+            completeActivity(event)
+            party.confetti(event, {
+                shapes: ["star"],
+                gravity: 75
+            })
+            // party.sparkles(event)
+        });
+        
 
         //append as children to listName
         listName.appendChild(newLi)
@@ -88,7 +100,7 @@ let renderCompletedActivities = (data) => {
     saveButton.addEventListener('click', selectActivity);
 
     const deleteButton = document.createElement('button');
-    deleteButton.textContent = 'delete';
+    deleteButton.innerHTML = '<img src="images/trash.png">';
     deleteButton.className = 'delete-button pushingtotheside';
     deleteButton.className = 'btn btn-danger';
     newLi.prepend(deleteButton);
@@ -96,19 +108,21 @@ let renderCompletedActivities = (data) => {
 
 }
 
-
-
 //called on click event when the save button on a list item is clicked
 //applied to save button inside render function
 //saveButton.addEventListener('click', selectActivity);
 let selectActivity = (event) => {
     //this function is to actually handle the selection of activities so that they can be saved on submit
+    event.preventDefault();
     const selectedActivity = event.target.parentNode;
     selectedActivity.className = 'selected-list-element';
     console.log(event.target.parentNode);
     formList.append(selectedActivity);
-}
 
+ 
+
+
+}
 
 //called on submit event when the name of a list is saved
 //by submitForm.addEventListener('submit', saveActivity);
@@ -133,13 +147,14 @@ let saveActivity = (event) => {
     //     console.log(newListArray);
     //     return newListArray;
     // });
-    
-    //try with .map
+
+
+
     let listNodes = document.querySelectorAll('.selected-list-element');
     const listArray = [...listNodes];
-    //const newListArray = [];
-
     let newListArray = listArray.map(element => element.lastChild.textContent);
+
+
 
     const newListSavedObj = {
         name: newListName, 
@@ -161,23 +176,18 @@ let saveActivity = (event) => {
     fetch(BASE_URL, configObj)
     .then(response => response.json())
     .then(data => console.log(data));
-    submitForm.reset();
+    realSubmitForm.reset();
+
     
 
-    //once the spot is created, will want to add the title to a section where you can see all your saved list titles. that way you can click on them and see the activity items
 }
-    
     
     let deleteActivity = (event) => {
     //this funtion deletes activities off of a list
-    console.log(event);
-    console.log(event.target.parentNode);
-    event.target.parentNode.remove();
+    event.target.parentNode.parentNode.remove();
     
     //would like to also add a section of this regarding DELETE fetch, so that we can delete items that were saved to a local db list --maybe would be in a separate function just for separation of concerns
 }
-
-
 
 //already added click event to done button inside the render fxn, click event will call complete activity
 //doneButton.addEventListener('click', completeActivity);
@@ -188,15 +198,19 @@ let completeActivity = (event) => {
     completedActivity.className = 'completed-list-element';
     console.log(completedActivity);
     //would like to figure out how to remove the done button, since we're marking the item as done in this function
-    //completedActivity.removeChild('ID')
-    //const doneBttn = completedActivity.querySelector('.btn btn-success');
-    //completedActivity.removeChild(doneBttn);
-    completedList.append(completedActivity);
+    
+    const spanText = completedActivity.lastChild.textContent
+
+    renderCompletedActivities(spanText);
+    completedActivity.remove();
+
+       //brainstorm - could grab span element from selected list element, delete old list element, send span element through completed activitites
+
+
     //selecting the activity within completedActivity
-    const completedActivityValue = completedActivity.lastChild.innerText
     //making new obj for post request
     const newListCompletedObj = {
-        activity: completedActivityValue
+        activity: spanText
     }
     console.log(newListCompletedObj)
     //fetch request to POST to local db
@@ -211,8 +225,6 @@ let completeActivity = (event) => {
     .then(response => response.json())
     .then(data => data);
 }
-
-//Amie's note here
 
 let renderActivity = (data) => {
     const newActivity = data;
@@ -232,7 +244,7 @@ let renderActivity = (data) => {
     saveButton.addEventListener('click', selectActivity);
 
     const deleteButton = document.createElement('button');
-    deleteButton.textContent = 'delete';
+    deleteButton.innerHTML = '<img src="images/trash.png">';
     deleteButton.className = 'delete-button pushingtotheside';
     deleteButton.className = 'btn btn-danger';
     newLi.prepend(deleteButton);
@@ -244,7 +256,7 @@ let renderActivity = (data) => {
     doneButton.className = 'btn btn-success pushingtotheside';
     newLi.prepend(doneButton);
     doneButton.addEventListener('click', (event) => {
-        event.preventDefault()
+        // event.preventDefault()
         completeActivity(event)
         party.confetti(event, {
             shapes: ["star"],
@@ -269,9 +281,6 @@ let activityFactory = (event) => {
     fetchData(activity_url);   
 }
 
-submitForm.addEventListener('submit', saveActivity);
-randomButton.addEventListener('click', activityFactory);
-document.addEventListener('DOMContentLoaded', init);
 
 let fetchForDropdown = (url) => {
     fetch(url)
@@ -280,39 +289,42 @@ let fetchForDropdown = (url) => {
 }
 
 let handleChangeFactory = (event) => {
-
+    
     let type_Url = 'http://www.boredapi.com/api/activity?type='
-
+    
     let activityType = event.target.value
     console.log(activityType)
-
-        if (activityType === 'education') {
-        fetchForDropdown(type_Url + `${activityType}`)
-
-        } else if (activityType === 'recreation') {
-        fetchForDropdown(type_Url + `${activityType}`)
-
-        } else if (activityType === 'social') {
-        fetchForDropdown(type_Url + `${activityType}`)
-
-        } else if (activityType === 'diy') {
-        fetchForDropdown(type_Url + `${activityType}`)
-
-        } else if (activityType === 'charity') {
-        fetchForDropdown(type_Url + `${activityType}`)
-
-        } else if (activityType === 'cooking') {
-        fetchForDropdown(type_Url + `${activityType}`)
-
-        } else if (activityType === 'relaxation') {
-        fetchForDropdown(type_Url + `${activityType}`)
     
-        } else if (activityType === 'music') {
+    if (activityType === 'education') {
         fetchForDropdown(type_Url + `${activityType}`)
-
-        } else if (activityType === 'busywork') {
+        
+    } else if (activityType === 'recreation') {
         fetchForDropdown(type_Url + `${activityType}`)
-        }
+        
+    } else if (activityType === 'social') {
+        fetchForDropdown(type_Url + `${activityType}`)
+        
+    } else if (activityType === 'diy') {
+        fetchForDropdown(type_Url + `${activityType}`)
+        
+    } else if (activityType === 'charity') {
+        fetchForDropdown(type_Url + `${activityType}`)
+        
+    } else if (activityType === 'cooking') {
+        fetchForDropdown(type_Url + `${activityType}`)
+        
+    } else if (activityType === 'relaxation') {
+        fetchForDropdown(type_Url + `${activityType}`)
+        
+    } else if (activityType === 'music') {
+        fetchForDropdown(type_Url + `${activityType}`)
+        
+    } else if (activityType === 'busywork') {
+        fetchForDropdown(type_Url + `${activityType}`)
+    }
 }
+
+realSubmitForm.addEventListener('submit', saveActivity);
+randomButton.addEventListener('click', activityFactory);
 activityDropDown.addEventListener('change', handleChangeFactory);
 document.addEventListener('DOMContentLoaded', init);
