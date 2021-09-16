@@ -42,6 +42,46 @@
         "Find a charity and donate to it"
       ],
       "id": "elQnaD-"
+    },
+    {
+      "name": "",
+      "activities": [],
+      "id": "XLkW4Pv"
+    },
+    {
+      "name": "",
+      "activities": [],
+      "id": "W4bXQWh"
+    },
+    {
+      "name": "",
+      "activities": [],
+      "id": "bCp22Z_"
+    },
+    {
+      "name": "",
+      "activities": [],
+      "id": "LaUfdtS"
+    },
+    {
+      "name": "",
+      "activities": [],
+      "id": "BUvXBKF"
+    },
+    {
+      "name": "",
+      "activities": [],
+      "id": "Xmclzxr"
+    },
+    {
+      "name": "",
+      "activities": [],
+      "id": "AZ7d5gF"
+    },
+    {
+      "name": "",
+      "activities": [],
+      "id": "M4it4Rl"
     }
   ],
   "completed-activities": [
@@ -168,6 +208,66 @@
     {
       "activity": "Read War and Peace",
       "id": "EnVeUM5"
+    },
+    {
+      "activity": "Create a cookbook with your favorite recipes",
+      "id": "Co2M5_k"
+    },
+    {
+      "activity": "Create a cookbook with your favorite recipes",
+      "id": "Yoqbcoh"
+    },
+    {
+      "activity": "Go for a run",
+      "id": "Uc6_7jx"
+    },
+    {
+      "activity": "Go for a run",
+      "id": "bC20i2l"
+    },
+    {
+      "activity": "Go to a nail salon",
+      "id": "qLg1cCD"
+    },
+    {
+      "activity": "Go to a nail salon",
+      "id": "S6HGIAt"
+    },
+    {
+      "activity": "Have a photo session with some friends",
+      "id": "iJ9yD2U"
+    },
+    {
+      "activity": "Have a photo session with some friends",
+      "id": "WEg3ScS"
+    },
+    {
+      "activity": "Color",
+      "id": "c0sl6kg"
+    },
+    {
+      "activity": "Color",
+      "id": "9SJff2b"
+    },
+    {
+      "activity": "Write a note of appreciation to someone",
+      "id": "Bp4WHpy"
+    },
+    {
+      "activity": "Write a note of appreciation to someone",
+      "id": "WIPdqRg"
+    },
+    {
+      "activity": "Hold a yard sale",
+      "id": "VszJwHs"
+    },
+    {
+      "activity": "Volunteer and help out at a senior center",
+      "id": "rqoBftm"
+    },
+    {
+      "activity": "Learn how to fold a paper crane",
+      "id": "sC3Lmku"
     }
   ]
 }
