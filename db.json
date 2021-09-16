@@ -34,6 +34,15 @@
         "Learn to play a new instrument"
       ],
       "id": "AVFYFBA"
+    },
+    {
+      "name": "new list",
+      "activities": [
+        "Take a caffeine nap",
+        "Improve your touch typing",
+        "Volunteer and help out at a senior center"
+      ],
+      "id": "p6pluef"
     }
   ],
   "completed-activities": [
@@ -64,6 +73,22 @@
     {
       "activity": "Take your cat on a walk",
       "id": "xkDzvJh"
+    },
+    {
+      "activity": "Meditate for five minutes",
+      "id": "nAlYitS"
+    },
+    {
+      "activity": "Read a formal research paper on an interesting subject",
+      "id": "LTE_wg0"
+    },
+    {
+      "activity": "Volunteer at your local food bank",
+      "id": "f7RsrHT"
+    },
+    {
+      "activity": "Shred old documents you don't need anymore",
+      "id": "vmfp0u7"
     }
   ]
 }
