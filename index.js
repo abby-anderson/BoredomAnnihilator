@@ -53,7 +53,7 @@ let renderSavedActivities = (obj) => {
         deleteButton.addEventListener('click', deleteActivity);
 
         const doneButton = document.createElement('button');
-        doneButton.textContent = 'done';
+        doneButton.innerHTML = '<img src="images/check.png">';
         doneButton.className = 'done-button';
         doneButton.className = 'btn btn-success pushingtotheside';
         newLi.prepend(doneButton);
@@ -83,7 +83,7 @@ let renderCompletedActivities = (data) => {
     completedList.appendChild(newLi);
     
     const saveButton = document.createElement('button');
-    saveButton.textContent = "save";
+    saveButton.innerHTML = '<img src="images/heart.png">';
     saveButton.className = 'btn btn-primary pushingtotheside'; 
     newLi.prepend(saveButton);
     saveButton.addEventListener('click', selectActivity);
@@ -214,7 +214,7 @@ let renderActivity = (data) => {
     listContainer.appendChild(newLi);
     
     const saveButton = document.createElement('button');
-    saveButton.textContent = "save";
+    saveButton.innerHTML = '<img src="images/heart.png">';
     saveButton.className = 'btn btn-primary pushingtotheside'; 
     newLi.prepend(saveButton);
     saveButton.addEventListener('click', selectActivity);
@@ -227,7 +227,7 @@ let renderActivity = (data) => {
     deleteButton.addEventListener('click', deleteActivity);
     
     const doneButton = document.createElement('button');
-    doneButton.textContent = 'done';
+    doneButton.innerHTML = '<img src="images/check.png">';
     doneButton.className = 'done-button';
     doneButton.className = 'btn btn-success pushingtotheside';
     newLi.prepend(doneButton);
