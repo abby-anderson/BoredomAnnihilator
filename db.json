@@ -1,0 +1,45 @@
+{
+    "saved-activities": [
+      {
+        "name": "To do this weekend",
+        "activities": [
+          "Create a cookbook with your favorite recipes",
+          "Go for a run",
+          "Go to a nail salon"
+        ],
+        "id": "1"
+      },
+      {
+        "name": "Next month",
+        "activities": [
+          "Color",
+          "Have a photo session with some friends",
+          "Write a note of appreciation to someone"
+        ],
+        "id": "2"
+      },
+      {
+        "name": "winter goals",
+        "activities": [
+          "Go skiing",
+          "Visit the beach",
+          "Read War and Peace"
+        ],
+        "id": "3"
+      }
+    ],
+    "completed-activities": [
+      {
+        "activity": "Learn how to whistle with your fingers",
+        "id": "1"
+      },
+      {
+        "activity": "Create and follow a savings plan",
+        "id": "2"
+      },
+      {
+        "activity": "Prepare a dish from a foreign culture",
+        "id": "3"
+      }
+    ]
+  }

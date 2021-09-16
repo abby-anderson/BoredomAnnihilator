@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+    <link href="CSS/bootstrap.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="icon" href="images/icon.jpg">
+    <script defer src="https://cdn.jsdelivr.net/npm/party-js@latest/bundle/party.min.js"></script>
+    <script defer src="index.js"></script>
+</head>
+
+<body>
+    <div id="saved-list-container" class="left">
+        <img src="images/smalllove2.png">
+        <ul id="saved-lists">
+        </ul>
+    </div>
+
+    <div id="completed-list-container" class="right">
+        <img src="images/largefinished.png">
+        <ul id="completed-list">
+        </ul>
+    </div>
+    
+    <div class="center bgimg">
+        <div class="child"></div>
+        <div class="thirds1">
+            <br><br>
+            <form id="save-form" class="">
+            <label></label>
+            <input type="text" id="list-name-input" />
+            <input type="submit" id="list-name" value="Submit" />
+            <ul id="selected-activities" class="">
+                
+            </ul>
+            </form>
+        </div>
+        <button class="btn btn-primary" id="random-button">Annihilate my Boredom!</button>
+        <div class="thirds3">
+            <br><br>
+            <div id="dropdown-container" class="">
+                <label for="select-activity"></label>
+                <select id="activity-dropdown" name="select-activity">
+                    <option></option>
+                    <option value="education">Education</option>
+                    <option value="recreational">Recreation</option>
+                    <option value="social">Social</option>
+                    <option value="diy">Diy</option>
+                    <option value="charity">Charity</option>
+                    <option value="cooking">Cooking</option>
+                    <option value="relaxation">Relaxation</option>
+                    <option value="music">Music</option>
+                    <option value ="busywork">Busywork</option>
+                </select>
+                <!-- <ul id="activities-by-type-container" class=""></ul> -->
+
+            </div>
+    
+
+        </div>
+        
+        
+        
+    </div>
+    
+</div>
+
+
+    
+</div>
+
+<div id="list-container" class="stuffholder">
+    <ul id="activities-by-type-container" class=""></ul>
+
+</div>
+
+
+</body>
+
+</html>
