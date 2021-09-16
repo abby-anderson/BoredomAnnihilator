@@ -29,6 +29,10 @@ let init = () => {
     //probs will actually just call render on both the above results!
 }
 
+
+
+
+
 let renderSavedActivities = (obj) => {
     //console.log(obj.name) 
 
@@ -43,11 +47,11 @@ let renderSavedActivities = (obj) => {
         newLi.textContent = element;
         //console.log(newLi);
 
-        //add buttons
         const deleteButton = document.createElement('button');
-        deleteButton.textContent = 'delete';
         deleteButton.className = 'delete-button pushingtotheside';
         deleteButton.className = 'btn btn-danger';
+        deleteButton.innerHTML = '<img src="images/trash.png">';
+
         newLi.prepend(deleteButton);
         deleteButton.addEventListener('click', deleteActivity);
 
@@ -88,7 +92,7 @@ let renderCompletedActivities = (data) => {
     saveButton.addEventListener('click', selectActivity);
 
     const deleteButton = document.createElement('button');
-    deleteButton.textContent = 'delete';
+    deleteButton.innerHTML = '<img src="images/trash.png">';
     deleteButton.className = 'delete-button pushingtotheside';
     deleteButton.className = 'btn btn-danger';
     newLi.prepend(deleteButton);
@@ -103,10 +107,15 @@ let renderCompletedActivities = (data) => {
 //saveButton.addEventListener('click', selectActivity);
 let selectActivity = (event) => {
     //this function is to actually handle the selection of activities so that they can be saved on submit
+    event.preventDefault();
     const selectedActivity = event.target.parentNode;
     selectedActivity.className = 'selected-list-element';
     console.log(event.target.parentNode);
     formList.append(selectedActivity);
+
+ 
+
+
 }
 
 
@@ -133,13 +142,14 @@ let saveActivity = (event) => {
     //     console.log(newListArray);
     //     return newListArray;
     // });
-    
-    //try with .map
+
+
+
     let listNodes = document.querySelectorAll('.selected-list-element');
     const listArray = [...listNodes];
-    //const newListArray = [];
-
     let newListArray = listArray.map(element => element.lastChild.textContent);
+
+
 
     const newListSavedObj = {
         name: newListName, 
@@ -162,16 +172,14 @@ let saveActivity = (event) => {
     .then(response => response.json())
     .then(data => console.log(data));
     submitForm.reset();
+
     
-    //once the spot is created, will want to add the title to a section where you can see all your saved list titles. that way you can click on them and see the activity items
 }
     
     
     let deleteActivity = (event) => {
     //this funtion deletes activities off of a list
-    console.log(event);
-    console.log(event.target.parentNode);
-    event.target.parentNode.remove();
+    event.target.parentNode.parentNode.remove();
     
     //would like to also add a section of this regarding DELETE fetch, so that we can delete items that were saved to a local db list --maybe would be in a separate function just for separation of concerns
 }
@@ -187,15 +195,19 @@ let completeActivity = (event) => {
     completedActivity.className = 'completed-list-element';
     console.log(completedActivity);
     //would like to figure out how to remove the done button, since we're marking the item as done in this function
-    //completedActivity.removeChild('ID')
-    //const doneBttn = completedActivity.querySelector('.btn btn-success');
-    //completedActivity.removeChild(doneBttn);
-    completedList.append(completedActivity);
+    
+    const spanText = completedActivity.lastChild.textContent
+
+    renderCompletedActivities(spanText);
+    completedActivity.remove();
+
+       //brainstorm - could grab span element from selected list element, delete old list element, send span element through completed activitites
+
+
     //selecting the activity within completedActivity
-    const completedActivityValue = completedActivity.lastChild.innerText
     //making new obj for post request
     const newListCompletedObj = {
-        activity: completedActivityValue
+        activity: spanText
     }
     console.log(newListCompletedObj)
     //fetch request to POST to local db
@@ -210,8 +222,6 @@ let completeActivity = (event) => {
     .then(response => response.json())
     .then(data => data);
 }
-
-//Amie's note here
 
 let renderActivity = (data) => {
     const newActivity = data;
@@ -231,7 +241,7 @@ let renderActivity = (data) => {
     saveButton.addEventListener('click', selectActivity);
 
     const deleteButton = document.createElement('button');
-    deleteButton.textContent = 'delete';
+    deleteButton.innerHTML = '<img src="images/trash.png">';
     deleteButton.className = 'delete-button pushingtotheside';
     deleteButton.className = 'btn btn-danger';
     newLi.prepend(deleteButton);
