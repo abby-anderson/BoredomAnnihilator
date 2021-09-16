@@ -183,17 +183,16 @@ let saveActivity = (event) => {
 let completeActivity = (event) => {
     //this function will be called when you click on the done button, and it will both move the list item on the dom to the completed activities div, and it will save the list item to a list of completed activities on the local db
     console.log(event)
-    const completedActivity = event.target.parentNode;
+    const completedActivity = event.target.parentNode.parentNode;
     completedActivity.className = 'completed-list-element';
     console.log(completedActivity);
     //would like to figure out how to remove the done button, since we're marking the item as done in this function
     
     const spanText = completedActivity.lastChild.textContent
+    console.log(spanText);
 
     renderCompletedActivities(spanText);
     completedActivity.remove();
-
-       //brainstorm - could grab span element from selected list element, delete old list element, send span element through completed activitites
 
 
     //selecting the activity within completedActivity

@@ -26,6 +26,14 @@
         "Read War and Peace"
       ],
       "id": "3"
+    },
+    {
+      "name": "new list",
+      "activities": [
+        "Go to a music festival with some friends",
+        "Think of a new business idea"
+      ],
+      "id": "IZnIBFz"
     }
   ],
   "completed-activities": [
@@ -42,16 +50,12 @@
       "id": "3"
     },
     {
-      "activity": "Try a food you don't like",
-      "id": "HK21_xE"
+      "activity": "Take a hike at a local park",
+      "id": "CNQVpcL"
     },
     {
-      "activity": "Think of a new business idea",
-      "id": "nIvqZJ-"
-    },
-    {
-      "activity": "Patronize a local independent restaurant",
-      "id": "3pggaDy"
+      "activity": "Start a family tree",
+      "id": "-TXrwG4"
     }
   ]
 }
