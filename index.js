@@ -6,6 +6,7 @@ const completed_activities_url = "http://localhost:3000/completed-activities";
 const container = document.querySelector('#activity-container');
 const listContainer = document.querySelector('#list-container');
 const submitForm = document.querySelector('#list-name')
+const realSubmitForm = document.querySelector('#save-form');
 const randomButton = document.querySelector('#random-button');
 const formSave = document.querySelector('form-save');
 const formList = document.querySelector('#selected-activities');
@@ -28,10 +29,6 @@ let init = () => {
 
     //probs will actually just call render on both the above results!
 }
-
-
-
-
 
 let renderSavedActivities = (obj) => {
     //console.log(obj.name) 
@@ -100,8 +97,6 @@ let renderCompletedActivities = (data) => {
 
 }
 
-
-
 //called on click event when the save button on a list item is clicked
 //applied to save button inside render function
 //saveButton.addEventListener('click', selectActivity);
@@ -117,7 +112,6 @@ let selectActivity = (event) => {
 
 
 }
-
 
 //called on submit event when the name of a list is saved
 //by submitForm.addEventListener('submit', saveActivity);
@@ -171,11 +165,10 @@ let saveActivity = (event) => {
     fetch(BASE_URL, configObj)
     .then(response => response.json())
     .then(data => console.log(data));
-    submitForm.reset();
+    realSubmitForm.reset();
 
     
 }
-    
     
     let deleteActivity = (event) => {
     //this funtion deletes activities off of a list
@@ -183,8 +176,6 @@ let saveActivity = (event) => {
     
     //would like to also add a section of this regarding DELETE fetch, so that we can delete items that were saved to a local db list --maybe would be in a separate function just for separation of concerns
 }
-
-
 
 //already added click event to done button inside the render fxn, click event will call complete activity
 //doneButton.addEventListener('click', completeActivity);
@@ -278,9 +269,6 @@ let activityFactory = (event) => {
     fetchData(activity_url);   
 }
 
-submitForm.addEventListener('submit', saveActivity);
-randomButton.addEventListener('click', activityFactory);
-document.addEventListener('DOMContentLoaded', init);
 
 let fetchForDropdown = (url) => {
     fetch(url)
@@ -289,39 +277,42 @@ let fetchForDropdown = (url) => {
 }
 
 let handleChangeFactory = (event) => {
-
+    
     let type_Url = 'http://www.boredapi.com/api/activity?type='
-
+    
     let activityType = event.target.value
     console.log(activityType)
-
-        if (activityType === 'education') {
-        fetchForDropdown(type_Url + `${activityType}`)
-
-        } else if (activityType === 'recreation') {
-        fetchForDropdown(type_Url + `${activityType}`)
-
-        } else if (activityType === 'social') {
-        fetchForDropdown(type_Url + `${activityType}`)
-
-        } else if (activityType === 'diy') {
-        fetchForDropdown(type_Url + `${activityType}`)
-
-        } else if (activityType === 'charity') {
-        fetchForDropdown(type_Url + `${activityType}`)
-
-        } else if (activityType === 'cooking') {
-        fetchForDropdown(type_Url + `${activityType}`)
-
-        } else if (activityType === 'relaxation') {
-        fetchForDropdown(type_Url + `${activityType}`)
     
-        } else if (activityType === 'music') {
+    if (activityType === 'education') {
         fetchForDropdown(type_Url + `${activityType}`)
-
-        } else if (activityType === 'busywork') {
+        
+    } else if (activityType === 'recreation') {
         fetchForDropdown(type_Url + `${activityType}`)
-        }
+        
+    } else if (activityType === 'social') {
+        fetchForDropdown(type_Url + `${activityType}`)
+        
+    } else if (activityType === 'diy') {
+        fetchForDropdown(type_Url + `${activityType}`)
+        
+    } else if (activityType === 'charity') {
+        fetchForDropdown(type_Url + `${activityType}`)
+        
+    } else if (activityType === 'cooking') {
+        fetchForDropdown(type_Url + `${activityType}`)
+        
+    } else if (activityType === 'relaxation') {
+        fetchForDropdown(type_Url + `${activityType}`)
+        
+    } else if (activityType === 'music') {
+        fetchForDropdown(type_Url + `${activityType}`)
+        
+    } else if (activityType === 'busywork') {
+        fetchForDropdown(type_Url + `${activityType}`)
+    }
 }
+
+realSubmitForm.addEventListener('submit', saveActivity);
+randomButton.addEventListener('click', activityFactory);
 activityDropDown.addEventListener('change', handleChangeFactory);
 document.addEventListener('DOMContentLoaded', init);
