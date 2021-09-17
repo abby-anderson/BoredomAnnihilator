@@ -19,30 +19,13 @@
       "id": "2"
     },
     {
-      "name": "winter goals",
+      "name": "Winter goals",
       "activities": [
         "Go skiing",
         "Visit the beach",
         "Read War and Peace"
       ],
       "id": "3"
-    },
-    {
-      "name": "new list",
-      "activities": [
-        "Organize your basement",
-        "Learn to play a new instrument"
-      ],
-      "id": "AVFYFBA"
-    },
-    {
-      "name": "new list",
-      "activities": [
-        "Take a caffeine nap",
-        "Improve your touch typing",
-        "Volunteer and help out at a senior center"
-      ],
-      "id": "p6pluef"
     }
   ],
   "completed-activities": [
@@ -59,36 +42,24 @@
       "id": "3"
     },
     {
-      "activity": "Organize your pantry",
-      "id": "v8VtBQo"
+      "activity": "Visit your past teachers",
+      "id": "4"
     },
     {
-      "activity": "Go for a walk",
-      "id": "-fN7bej"
+      "activity": "Contribute code or a monetary donation to an open-source software project",
+      "id": "5"
     },
     {
-      "activity": "Explore a park you have never been to before",
-      "id": "X9WZMew"
+      "activity": "Volunteer at a local animal shelter",
+      "id": "6"
     },
     {
-      "activity": "Take your cat on a walk",
-      "id": "xkDzvJh"
+      "activity": "Learn origami",
+      "id": "7"
     },
     {
-      "activity": "Meditate for five minutes",
-      "id": "nAlYitS"
-    },
-    {
-      "activity": "Read a formal research paper on an interesting subject",
-      "id": "LTE_wg0"
-    },
-    {
-      "activity": "Volunteer at your local food bank",
-      "id": "f7RsrHT"
-    },
-    {
-      "activity": "Shred old documents you don't need anymore",
-      "id": "vmfp0u7"
+      "activity": "Volunteer at your local food pantry",
+      "id": "8"
     }
   ]
 }
