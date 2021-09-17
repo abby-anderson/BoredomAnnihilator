@@ -30,10 +30,19 @@
     {
       "name": "new list",
       "activities": [
-        "Conquer one of your fears",
-        "Play a volleyball match with some friends"
+        "Organize your basement",
+        "Learn to play a new instrument"
       ],
-      "id": "StQVd1P"
+      "id": "AVFYFBA"
+    },
+    {
+      "name": "new list",
+      "activities": [
+        "Take a caffeine nap",
+        "Improve your touch typing",
+        "Volunteer and help out at a senior center"
+      ],
+      "id": "p6pluef"
     }
   ],
   "completed-activities": [
@@ -50,16 +59,36 @@
       "id": "3"
     },
     {
-      "activity": "Go on a long drive with no music",
-      "id": "7z99DYl"
+      "activity": "Organize your pantry",
+      "id": "v8VtBQo"
     },
     {
-      "activity": "Learn how to make a website",
-      "id": "Rgb6OPG"
+      "activity": "Go for a walk",
+      "id": "-fN7bej"
     },
     {
-      "activity": "Go see a Broadway production",
-      "id": "icaa8SU"
+      "activity": "Explore a park you have never been to before",
+      "id": "X9WZMew"
+    },
+    {
+      "activity": "Take your cat on a walk",
+      "id": "xkDzvJh"
+    },
+    {
+      "activity": "Meditate for five minutes",
+      "id": "nAlYitS"
+    },
+    {
+      "activity": "Read a formal research paper on an interesting subject",
+      "id": "LTE_wg0"
+    },
+    {
+      "activity": "Volunteer at your local food bank",
+      "id": "f7RsrHT"
+    },
+    {
+      "activity": "Shred old documents you don't need anymore",
+      "id": "vmfp0u7"
     }
   ]
 }

@@ -44,31 +44,35 @@ let renderSavedActivities = (obj) => {
         newLi.textContent = element;
         //console.log(newLi);
 
-        const deleteButton = document.createElement('button');
-        deleteButton.className = 'delete-button pushingtotheside';
-        deleteButton.className = 'btn btn-danger';
-        deleteButton.innerHTML = '<img src="images/trash.png">';
-
+        const deleteButton = document.createElement('img');
+        deleteButton.src = 'images/trash-click.png';
+        deleteButton.className = 'tiny-icon trash-image pushingtotheside';
         newLi.prepend(deleteButton);
         deleteButton.addEventListener('click', deleteActivity);
+        deleteButton.addEventListener('mouseover', () => {
+            deleteButton.src = 'images/trash-mouseover.png'
+        })
+        deleteButton.addEventListener('mouseout', () =>{
+            deleteButton.src = 'images/trash-click.png'
+        })
 
-        const doneButton = document.createElement('button');
-        doneButton.innerHTML = '<img src="images/check.png">';
-        doneButton.className = 'done-button';
-        doneButton.className = 'btn btn-success pushingtotheside';
+        const doneButton = document.createElement('img');
+        doneButton.src= 'images/check-click.png';
+        doneButton.className = 'check-image pushingtotheside';
         newLi.prepend(doneButton);
-        
-        doneButton.addEventListener('click', completeActivity);
+        doneButton.addEventListener('mouseover', () => {
+            doneButton.src = 'images/check-mouseover.png'
+        })
+        doneButton.addEventListener('mouseout', () => {
+            doneButton.src = 'images/check-click.png'
+        })
         doneButton.addEventListener('click', (event) => {
-            // event.preventDefault()
             completeActivity(event)
             party.confetti(event, {
                 shapes: ["star"],
                 gravity: 75
             })
-            // party.sparkles(event)
         });
-        
 
         //append as children to listName
         listName.appendChild(newLi)
@@ -95,18 +99,29 @@ let renderCompletedActivities = (data) => {
     newLi.appendChild(newSpan);
     completedList.appendChild(newLi);
     
-    const saveButton = document.createElement('button');
-    saveButton.innerHTML = '<img src="images/heart.png">';
-    saveButton.className = 'btn btn-primary pushingtotheside'; 
+    const saveButton = document.createElement('img');
+    saveButton.src = 'images/heart.png'
+    saveButton.className = 'heart-image pushingtotheside';
     newLi.prepend(saveButton);
     saveButton.addEventListener('click', selectActivity);
+    saveButton.addEventListener('mouseover', () => {
+        saveButton.src = 'images/heart-mouseover.png'
+    })
+    saveButton.addEventListener('mouseout', () => {
+        saveButton.src = 'images/heart.png'
+    })
 
-    const deleteButton = document.createElement('button');
-    deleteButton.innerHTML = '<img src="images/trash.png">';
-    deleteButton.className = 'delete-button pushingtotheside';
-    deleteButton.className = 'btn btn-danger';
+    const deleteButton = document.createElement('img');
+    deleteButton.src = 'images/trash-click.png';
+    deleteButton.className = 'trash-image pushingtotheside';
     newLi.prepend(deleteButton);
     deleteButton.addEventListener('click', deleteActivity);
+    deleteButton.addEventListener('mouseover', () => {
+        deleteButton.src = 'images/trash-mouseover.png'
+    })
+    deleteButton.addEventListener('mouseout', () =>{
+        deleteButton.src = 'images/trash-click.png'
+    })
 
 }
 
