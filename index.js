@@ -1,8 +1,10 @@
+//urls to use in fetches
 const BASE_URL = "http://localhost:3000/saved-activities";
 const activity_url = "https://www.boredapi.com/api/activity";
 const saved_activities_url = "http://localhost:3000/saved-activities";
 const completed_activities_url = "http://localhost:3000/completed-activities";
 
+//variables
 const container = document.querySelector('#activity-container');
 const listContainer = document.querySelector('#list-container');
 const submitForm = document.querySelector('#list-name')
@@ -16,7 +18,7 @@ const completedList = document.querySelector('#completed-list');
 const savedLists = document.querySelector('#saved-lists');
 
 let init = () => {
-    console.log('bored? here are some ideas:');
+    //console.log('bored? here are some ideas:');
     //fetch the completed tasks and render them to the page
     fetch(completed_activities_url)
     .then(response => response.json())
@@ -82,7 +84,6 @@ let renderSavedActivities = (obj) => {
     savedLists.appendChild(listName);
 }
 
-
 let factoryCompletedActivities = (obj) => {
     renderCompletedActivities(obj.activity);
 }
@@ -125,46 +126,36 @@ let renderCompletedActivities = (data) => {
 
 }
 
-//called on click event when the save button on a list item is clicked
-//applied to save button inside render function
-//saveButton.addEventListener('click', selectActivity);
 let selectActivity = (event) => {
-    //this function is to actually handle the selection of activities so that they can be saved on submit
+    //this function is to actually handle the selection of activities so that they can be saved on submit later
+    //it is called on click event when the save button on a list item is clicked
+    //applied to save button inside render function
+    //saveButton.addEventListener('click', selectActivity);
     event.preventDefault();
     const selectedActivity = event.target.parentNode;
     selectedActivity.className = 'selected-list-element';
     //console.log(event.target.parentNode);
     formList.append(selectedActivity);
-
- 
-
-
 }
 
-//called on submit event when the name of a list is saved
-//by submitForm.addEventListener('submit', saveActivity);
 let saveActivity = (event) => {
     //this function saves specific selected activities to a local db list
+    //called on submit event when the name of a list is saved
+    //by submitForm.addEventListener('submit', saveActivity);
     event.preventDefault();
     
     const newListName = document.querySelector("input#list-name-input").value;
-    //console.log(newListName); //for name of newListSavedObj
 
     let listNodes = document.querySelectorAll('.selected-list-element');
-    console.log(listNodes);
-    console.log(typeof listNodes);
-
 
     const listArray = [...listNodes];
     let newListArray = listArray.map(element => element.lastChild.textContent);
 
+    // creating a new object to save to the local db
     const newListSavedObj = {
         name: newListName, 
         activities: newListArray,//selected list element
     }
-    // creating a new object to save to the local db
-    //console.log('newListArray from map', newListArray);
-    //console.log(newListSavedObj);
     
     //then do fetch request to post this to the local db
     const configObj = {
@@ -180,45 +171,34 @@ let saveActivity = (event) => {
     .then(data => console.log(data));
     realSubmitForm.reset();
 
-
-    //also should move the whole list to the new section and remove the elements from the middle
+    //also moving the whole list to the new section and remove the elements from the middle
     renderSavedActivities(newListSavedObj);
     formList.innerHTML = '';
-
-
 }
     
-    let deleteActivity = (event) => {
+let deleteActivity = (event) => {
     //this funtion deletes activities off of a list
     event.target.parentNode.remove();
     
     //would like to also add a section of this regarding DELETE fetch, so that we can delete items that were saved to a local db list --maybe would be in a separate function just for separation of concerns
 }
 
-//already added click event to done button inside the render fxn, click event will call complete activity
-//doneButton.addEventListener('click', completeActivity);
 let completeActivity = (event) => {
     //this function will be called when you click on the done button, and it will both move the list item on the dom to the completed activities div, and it will save the list item to a list of completed activities on the local db
-    console.log(event)
+    //doneButton.addEventListener('click', completeActivity);
     const completedActivity = event.target.parentNode;
     completedActivity.className = 'completed-list-element';
-    console.log(completedActivity);
-    //would like to figure out how to remove the done button, since we're marking the item as done in this function
-    
+
+    //selecting the activity within completedActivity
     const spanText = completedActivity.lastChild.textContent
 
     renderCompletedActivities(spanText);
     completedActivity.remove();
 
-       //brainstorm - could grab span element from selected list element, delete old list element, send span element through completed activitites
-
-
-    //selecting the activity within completedActivity
     //making new obj for post request
     const newListCompletedObj = {
         activity: spanText
     }
-    console.log(newListCompletedObj)
     //fetch request to POST to local db
     const configCompletedObj = {
         method: "POST",
@@ -234,8 +214,7 @@ let completeActivity = (event) => {
 
 let renderActivity = (data) => {
     const newActivity = data;
- 
-   
+
     const newLi = document.createElement('li');
     const newSpan = document.createElement('span');
     newSpan.textContent = newActivity;
@@ -243,8 +222,6 @@ let renderActivity = (data) => {
     newLi.appendChild(newSpan);
     listContainer.appendChild(newLi);
     
-    //****working on adding image instead of button */
-    //const saveButton = document.createElement('button');
     const saveButton = document.createElement('img');
     saveButton.src = 'images/heart.png'
     saveButton.className = 'heart-image pushingtotheside';
@@ -257,7 +234,6 @@ let renderActivity = (data) => {
         saveButton.src = 'images/heart.png'
     })
 
-
     const deleteButton = document.createElement('img');
     deleteButton.src = 'images/trash-click.png';
     deleteButton.className = 'trash-image pushingtotheside';
@@ -269,7 +245,6 @@ let renderActivity = (data) => {
     deleteButton.addEventListener('mouseout', () =>{
         deleteButton.src = 'images/trash-click.png'
     })
-
 
     const doneButton = document.createElement('img');
     doneButton.src= 'images/check-click.png';
@@ -305,7 +280,6 @@ let activityFactory = (event) => {
     fetchData(activity_url);   
 }
 
-
 let fetchForDropdown = (url) => {
     fetch(url)
     .then(response => response.json())
@@ -313,16 +287,13 @@ let fetchForDropdown = (url) => {
 }
 
 let handleChangeFactory = (event) => {
-    
     let type_Url = 'http://www.boredapi.com/api/activity?type='
-    
-    let activityType = event.target.value
-    console.log(activityType)
+    let activityType = event.target.value;
     
     if (activityType === 'education') {
         fetchForDropdown(type_Url + `${activityType}`)
         
-    } else if (activityType === 'recreation') {
+    } else if (activityType === 'recreational') {
         fetchForDropdown(type_Url + `${activityType}`)
         
     } else if (activityType === 'social') {
@@ -347,6 +318,7 @@ let handleChangeFactory = (event) => {
         fetchForDropdown(type_Url + `${activityType}`)
     }
 }
+
 realSubmitForm.addEventListener('submit', saveActivity);
 randomButton.addEventListener('click', activityFactory);
 activityDropDown.addEventListener('change', handleChangeFactory);
